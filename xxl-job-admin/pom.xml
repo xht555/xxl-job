@@ -89,6 +89,21 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- 打包、发布时附带源码包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven-source-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- docker -->
 			<plugin>
 				<groupId>com.spotify</groupId>
@@ -110,4 +125,16 @@
 		</plugins>
 	</build>
 
+	<!-- JAR包发布 -->
+	<distributionManagement>
+		<repository>
+			<id>nexus-poweroak</id>
+			<url>http://maven.poweroak.ltd:8088/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-poweroak</id>
+			<url>http://maven.poweroak.ltd:8088/repository/maven-snapshots/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
