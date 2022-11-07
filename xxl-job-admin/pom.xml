@@ -7,6 +7,7 @@
 		<version>2.3.1</version>
 	</parent>
 	<artifactId>xxl-job-admin</artifactId>
+	<version>2.3.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<dependencyManagement>
@@ -77,6 +78,8 @@
 
 	<build>
 		<plugins>
+			<!-- 不能打成SpringBoot可执行包 -->
+			<!--
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -89,6 +92,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
 			<!-- 打包、发布时附带源码包 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
